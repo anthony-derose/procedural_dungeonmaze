@@ -8,6 +8,8 @@ public class MazeConstructor : MonoBehaviour
     [SerializeField] private Material matrix2;
     [SerializeField] private Material start;
     [SerializeField] private Material treasure;
+    private MazeMeshGen meshGenerator = null;
+
 
     private MazeData mazeData;
 
@@ -16,6 +18,8 @@ public class MazeConstructor : MonoBehaviour
     }
 
     void Awake(){
+        meshGenerator = new MazeMeshGen();
+
         // this is an empty cell 
         data = new int[,]
         {
@@ -51,6 +55,21 @@ public class MazeConstructor : MonoBehaviour
         Debug.Log(info); 
     }
 
+    private void DisplayMaze(){
+        GameObject go = new GameObject();
+        go.transform.position = Vector3.zero;
+        go.name = "Procedural Maze";
+        go.tag = "Gen";
+
+        MeshFilter mf = go.AddComponent<MeshFilter>();
+        mf.mesh = meshGenerator.FromData(data);
+    
+        MeshCollider mc = go.AddComponent<MeshCollider>();
+        mc.sharedMesh = mf.mesh;
+
+        MeshRenderer mr = go.AddComponent<MeshRenderer>();
+        mr.materials = new Material[2] {matrix1, matrix2};
+    }
     public void GenerateNewMaze(int rows, int cols){
         if (rows % 2 == 0 && cols % 2 == 0)
         {
@@ -58,5 +77,7 @@ public class MazeConstructor : MonoBehaviour
         }
 
         data = mazeData.FromDimensions(rows, cols);
+
+        DisplayMaze();
     }
 }
