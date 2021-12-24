@@ -22,20 +22,17 @@ public class FpsMovement : MonoBehaviour
 
     private CharacterController charController;
 
-    void Start()
-    {
+    void Start(){
         charController = GetComponent<CharacterController>();
     }
 
-    void Update()
-    {
+    void Update(){
         MoveCharacter();
         RotateCharacter();
         RotateCamera();
     }
 
-    private void MoveCharacter()
-    {
+    private void MoveCharacter(){
         float deltaX = Input.GetAxis("Horizontal") * speed;
         float deltaZ = Input.GetAxis("Vertical") * speed;
 
@@ -49,13 +46,12 @@ public class FpsMovement : MonoBehaviour
         charController.Move(movement);
     }
 
-    private void RotateCharacter()
-    {
+    private void RotateCharacter(){
         transform.Rotate(0, Input.GetAxis("Mouse X") * sensitivityHor, 0);
     }
 
     private void RotateCamera()
-    {
+{
         rotationVert -= Input.GetAxis("Mouse Y") * sensitivityVert;
         rotationVert = Mathf.Clamp(rotationVert, minimumVert, maximumVert);
 

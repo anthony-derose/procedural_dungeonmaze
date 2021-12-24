@@ -8,8 +8,7 @@ public class TriggerEventRouter : MonoBehaviour
 {
     public TriggerEventHandler callback;
 
-    void OnTriggerEnter(Collider other)
-    {
+    void OnTriggerEnter(Collider other){
         if (callback != null)
         {
             callback(this.gameObject, other.gameObject);
