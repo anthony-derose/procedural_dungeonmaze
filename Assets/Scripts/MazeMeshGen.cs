@@ -4,20 +4,17 @@ using UnityEngine;
 
 public class MazeMeshGen : MonoBehaviour
 {
-    public float width;     // how wide are hallways
-    public float height;    // how tall are hallways
+    public float width;     //  wide hallways
+    public float height;    // tall hallways
 
-    public MazeMeshGen()
-    {
+    public MazeMeshGen(){
         width = 3.75f;
         height = 3.5f;
     }
 
-    public Mesh FromData(int[,] data)
-    {
+    public Mesh FromData(int[,] data){
         Mesh maze = new Mesh();
 
-        //3
         List<Vector3> newVertices = new List<Vector3>();
         List<Vector2> newUVs = new List<Vector2>();
 
@@ -29,7 +26,6 @@ public class MazeMeshGen : MonoBehaviour
         int cMax = data.GetUpperBound(1);
         float halfH = height * .5f;
 
-        //4
         for (int i = 0; i <= rMax; i++)
         {
             for (int j = 0; j <= cMax; j++)
