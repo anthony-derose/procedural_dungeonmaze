@@ -6,31 +6,30 @@ using System;
 [RequireComponent(typeof(MazeConstructor))]  
 public class Controller : MonoBehaviour
 {
-//1
+
     [SerializeField] private FpsMovement player;
     [SerializeField] private Text timeLabel;
     [SerializeField] private Text scoreLabel;
 
     private MazeConstructor generator;
 
-    //2
+
     private DateTime startTime;
-    private int timeLimit;
-    private int reduceLimitBy;
+    // note for some reason i think both time limits need to be declared
+    private int timeLimit = 100;
+    private int reduceLimitBy = 5;
 
     private int score = 0;
     private bool goalReached;
 
-    //3
+    
     void Start() {
         generator = GetComponent<MazeConstructor>();
         StartNewGame();
     }
 
-    //4
-    private void StartNewGame()
-    {
-        timeLimit = 80;
+    private void StartNewGame(){
+        timeLimit = 100;
         reduceLimitBy = 5;
         startTime = DateTime.Now;
 
@@ -40,10 +39,8 @@ public class Controller : MonoBehaviour
         StartNewMaze();
     }
 
-    //5
-    private void StartNewMaze()
-    {
-        generator.GenerateNewMaze(13, 15, OnStartTrigger, OnGoalTrigger);
+    private void StartNewMaze(){
+        generator.GenerateNewMaze(15, 17, OnStartTrigger, OnGoalTrigger);
 
         float x = generator.startCol * generator.hallWidth;
         float y = 1;
@@ -58,9 +55,7 @@ public class Controller : MonoBehaviour
         startTime = DateTime.Now;
     }
 
-    //6
-    void Update()
-    {
+    void Update(){
         if (!player.enabled)
         {
             return;
@@ -82,9 +77,7 @@ public class Controller : MonoBehaviour
         }
     }
 
-    //7
-    private void OnGoalTrigger(GameObject trigger, GameObject other)
-    {
+    private void OnGoalTrigger(GameObject trigger, GameObject other){
         Debug.Log("Goal!");
         goalReached = true;
 
@@ -92,10 +85,10 @@ public class Controller : MonoBehaviour
         scoreLabel.text = score.ToString();
 
         Destroy(trigger);
+        Invoke("StartNewMaze", 4);
     }
 
-    private void OnStartTrigger(GameObject trigger, GameObject other)
-    {
+    private void OnStartTrigger(GameObject trigger, GameObject other){
         if (goalReached)
         {
             Debug.Log("Finish!");

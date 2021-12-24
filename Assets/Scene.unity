@@ -343,9 +343,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3662eb10fbca643a499e4693cb7d532d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  timeLabel: {fileID: 0}
-  scoreLabel: {fileID: 0}
+  player: {fileID: 1773131083}
+  timeLabel: {fileID: 1966176014}
+  scoreLabel: {fileID: 1280697454}
 --- !u!114 &643471514
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -735,7 +735,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
-  m_Maskable: 1
+  m_Maskable: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -752,7 +752,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 10
+  m_Text: 80
 --- !u!222 &1966176015
 CanvasRenderer:
   m_ObjectHideFlags: 0
