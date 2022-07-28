@@ -1,8 +1,8 @@
 ### procedural maze game 
 
-The code base of this game can be found here: [https://github.com/anthony-derose/procedural_dungeonmaze](https://github.com/anthony-derose/procedural_dungeonmaze). A video demo can be found below. 
+The code base of this game can be found here: [https://github.com/anthony-derose/procedural_dungeonmaze](https://github.com/anthony-derose/procedural_dungeonmaze). And written up on my website here https://www.anthony-derose.com/projects/procedural-maze-game. A video demo can be found below. 
 
-[![preview of maze](https://img.youtube.com/vi/phpyXQfqfDk/0.jpg)](https://www.youtube.com/watch?v=phpyXQfqfDk)
+https://www.youtube.com/watch?v=phpyXQfqfDk
 
 #### Basic Instructions and Info:
 This was developed using Unity3D and C#. 
